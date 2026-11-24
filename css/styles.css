@@ -1,0 +1,1419 @@
+/* ==========================================================================
+   PODOGERIÁTRICA · Capacitación y Certificaciones
+   Hoja de estilos principal (CSS3 Vanilla - Sin Frameworks)
+   Arquitectura basada en Variables CSS (:root), Metodología Semántica y Diseño Responsivo
+   ========================================================================== */
+
+:root {
+  /* Paleta Institucional Oficial */
+  --color-principal: #142D52;       /* Azul marino institucional */
+  --color-principal-oscuro: #0C1D36;/* Azul marino profundo para contrastes */
+  --color-principal-claro: #1E4276; /* Azul marino medio para estados hover */
+  --color-turquesa: #00A6B2;        /* Turquesa clínico / acento institucional */
+  --color-turquesa-claro: #E6F7F8;  /* Fondo suave turquesa */
+  --color-morado: #57368C;          /* Morado académico / transformación */
+  --color-morado-claro: #EFEBF7;    /* Fondo suave morado */
+  --color-dorado: #D6AE61;          /* Dorado institucional / detalles destacados */
+  --color-dorado-claro: #FBF6EC;    /* Fondo suave dorado */
+
+  /* Fondos y Superficies Claras */
+  --color-fondo: #F7F9FC;           /* Fondo general de la página */
+  --color-fondo-alt: #EEF3F8;       /* Fondo secundario para alternar secciones */
+  --color-blanco: #FFFFFF;          /* Superficie de tarjetas y cabecera */
+
+  /* Tipografía y Texto */
+  --color-texto: #1B2941;           /* Texto principal de alto contraste */
+  --color-texto-secundario: #4A5B75;/* Texto descriptivo y subtítulos */
+  --color-borde: #DCE4EE;           /* Bordes sutiles para tarjetas y divisores */
+  --color-whatsapp: #25D366;        /* Verde oficial para acciones de WhatsApp */
+
+  /* Dimensiones y Espaciado */
+  --ancho-maximo: 1200px;
+  --radio-sm: 8px;
+  --radio-md: 14px;
+  --radio-lg: 20px;
+  --sombra-suave: 0 4px 20px rgba(20, 45, 82, 0.06);
+  --sombra-media: 0 10px 30px rgba(20, 45, 82, 0.12);
+  --transicion: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Familias Tipográficas (Sistema con jerarquía académica) */
+  --fuente-titulos: 'Georgia', 'Times New Roman', serif;
+  --fuente-cuerpo: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ==========================================================================
+   1. RESET Y BASE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-cuerpo);
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transicion);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Enlace de accesibilidad para saltar al contenido */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--color-principal);
+  color: var(--color-blanco);
+  padding: 10px 16px;
+  border-radius: var(--radio-sm);
+  z-index: 9999;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ==========================================================================
+   2. UTILIDADES DE CONTENEDOR Y TIPOGRAFÍA
+   ========================================================================== */
+.contenedor {
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.seccion {
+  padding: 84px 0;
+}
+
+.seccion-alt {
+  background-color: var(--color-fondo-alt);
+}
+
+.seccion-oscura {
+  background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-principal-oscuro) 100%);
+  color: var(--color-blanco);
+}
+
+.encabezado-seccion {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px;
+}
+
+.etiqueta-seccion {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background-color: var(--color-turquesa-claro);
+  color: var(--color-principal);
+  border: 1px solid rgba(0, 166, 178, 0.3);
+  margin-bottom: 14px;
+}
+
+.etiqueta-seccion.morado {
+  background-color: var(--color-morado-claro);
+  color: var(--color-morado);
+  border-color: rgba(87, 54, 140, 0.25);
+}
+
+.etiqueta-seccion.dorado {
+  background-color: var(--color-dorado-claro);
+  color: var(--color-principal);
+  border-color: var(--color-dorado);
+}
+
+.encabezado-seccion h2 {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  color: var(--color-principal);
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+
+.seccion-oscura .encabezado-seccion h2 {
+  color: var(--color-blanco);
+}
+
+.encabezado-seccion p {
+  font-size: 1.08rem;
+  color: var(--color-texto-secundario);
+  margin: 0;
+}
+
+.seccion-oscura .encabezado-seccion p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ==========================================================================
+   3. BOTONES (CTAs)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: var(--radio-sm);
+  font-weight: 700;
+  font-size: 0.98rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transicion);
+  text-align: center;
+}
+
+.btn-primario {
+  background-color: var(--color-dorado);
+  color: var(--color-principal-oscuro);
+  border-color: var(--color-dorado);
+  box-shadow: 0 4px 14px rgba(214, 174, 97, 0.35);
+}
+.btn-primario:hover {
+  background-color: #e0b96d;
+  transform: translateY(-2px);
+}
+
+.btn-institucional {
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+  border-color: var(--color-principal);
+}
+.btn-institucional:hover {
+  background-color: var(--color-principal-claro);
+  transform: translateY(-2px);
+}
+
+.btn-turquesa {
+  background-color: var(--color-turquesa);
+  color: var(--color-blanco);
+  border-color: var(--color-turquesa);
+}
+.btn-turquesa:hover {
+  background-color: #008f9a;
+  transform: translateY(-2px);
+}
+
+.btn-secundario {
+  background-color: transparent;
+  color: var(--color-blanco);
+  border-color: rgba(255, 255, 255, 0.65);
+}
+.btn-secundario:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-blanco);
+}
+
+.btn-contorno {
+  background-color: var(--color-blanco);
+  color: var(--color-principal);
+  border-color: var(--color-principal);
+}
+.btn-contorno:hover {
+  background-color: var(--color-principal);
+  color: var(--color-blanco);
+}
+
+/* ==========================================================================
+   4. BARRA SUPERIOR Y CABECERA (HEADER & NAV)
+   ========================================================================== */
+.barra-superior {
+  background-color: var(--color-principal-oscuro);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  padding: 8px 0;
+  border-bottom: 2px solid var(--color-dorado);
+}
+
+.barra-superior-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.barra-superior-items {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.barra-superior-items span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.punto-dorado {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-dorado);
+  display: inline-block;
+}
+
+.barra-superior a {
+  color: var(--color-dorado);
+  font-weight: 600;
+}
+.barra-superior a:hover {
+  text-decoration: underline;
+}
+
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 16px rgba(20, 45, 82, 0.08);
+}
+
+.cabecera-contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 76px;
+  gap: 16px;
+}
+
+.marca {
+  display: flex;
+  flex-direction: column;
+}
+
+.marca-titulo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: var(--color-principal);
+  border-bottom: 3px solid var(--color-turquesa);
+  padding-bottom: 2px;
+  line-height: 1.1;
+}
+
+.marca-subtitulo {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-morado);
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+.nav-principal {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-lista {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-enlace {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--color-texto);
+  padding: 6px 2px;
+  position: relative;
+}
+
+.nav-enlace::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-turquesa);
+  transition: var(--transicion);
+}
+
+.nav-enlace:hover::after,
+.nav-enlace.activo::after {
+  width: 100%;
+}
+
+.nav-enlace:hover,
+.nav-enlace.activo {
+  color: var(--color-principal);
+}
+
+.acciones-cabecera {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-cotizador-nav {
+  position: relative;
+  background: var(--color-fondo-alt);
+  color: var(--color-principal);
+  border: 1px solid var(--color-borde);
+  padding: 10px 14px;
+  border-radius: var(--radio-sm);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-cotizador-nav:hover {
+  border-color: var(--color-turquesa);
+  background: var(--color-turquesa-claro);
+}
+
+.contador-seleccion {
+  background-color: var(--color-morado);
+  color: var(--color-blanco);
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.boton-menu-movil {
+  display: none;
+  background: none;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  padding: 8px 10px;
+  cursor: pointer;
+  color: var(--color-principal);
+}
+
+/* ==========================================================================
+   5. SECCIÓN HERO (PORTADA INSTITUCIONAL)
+   ========================================================================== */
+.hero {
+  position: relative;
+  background: linear-gradient(125deg, var(--color-principal) 0%, #193A6A 55%, var(--color-morado) 100%);
+  color: var(--color-blanco);
+  padding: 84px 0 92px;
+  border-bottom: 6px solid var(--color-dorado);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 166, 178, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-insignia {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(214, 174, 97, 0.6);
+  color: var(--color-dorado);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  line-height: 1.18;
+  margin: 0 0 20px;
+}
+
+.hero h1 span {
+  color: var(--color-dorado);
+}
+
+.hero-descripcion {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 32px;
+  max-width: 620px;
+}
+
+.hero-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.hero-pilares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.pilar-item strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--color-dorado);
+}
+
+.pilar-item span {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Tarjeta destacada derecha del Hero */
+.hero-tarjeta {
+  background: var(--color-blanco);
+  color: var(--color-texto);
+  border-radius: var(--radio-lg);
+  padding: 32px;
+  box-shadow: var(--sombra-media);
+  border-top: 5px solid var(--color-turquesa);
+}
+
+.hero-tarjeta-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.hero-tarjeta h2 {
+  font-size: 1.3rem;
+  color: var(--color-principal);
+  margin: 0;
+}
+
+.badge-ec {
+  background: var(--color-morado);
+  color: var(--color-blanco);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radio-sm);
+  white-space: nowrap;
+}
+
+.lista-check {
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lista-check li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--color-texto-secundario);
+}
+
+.icono-check {
+  color: var(--color-turquesa);
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.hero-tarjeta-pie {
+  background: var(--color-fondo);
+  padding: 16px;
+  border-radius: var(--radio-sm);
+  border-left: 4px solid var(--color-dorado);
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   6. PROGRAMA PRESENCIAL DE 7 MESES Y TALLERES
+   ========================================================================== */
+.grid-programas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.tarjeta-programa {
+  background: var(--color-blanco);
+  border-radius: var(--radio-md);
+  padding: 32px 28px;
+  box-shadow: var(--sombra-suave);
+  border: 1px solid var(--color-borde);
+  border-top: 5px solid var(--color-turquesa);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transicion);
+}
+
+.tarjeta-programa:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-media);
+}
+
+.tarjeta-programa.destacada {
+  border-top-color: var(--color-dorado);
+  position: relative;
+}
+
+.tarjeta-programa.morada {
+  border-top-color: var(--color-morado);
+}
+
+.programa-meta {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-turquesa);
+  margin-bottom: 10px;
+}
+
+.tarjeta-programa.morada .programa-meta {
+  color: var(--color-morado);
+}
+
+.tarjeta-programa.destacada .programa-meta {
+  color: var(--color-principal);
+  background: var(--color-dorado-claro);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.tarjeta-programa h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.4rem;
+  color: var(--color-principal);
+  margin: 0 0 12px;
+}
+
+.tarjeta-programa p {
+  color: var(--color-texto-secundario);
+  margin: 0 0 20px;
+  font-size: 0.96rem;
+}
+
+/* Línea de tiempo / Estructura del curso de 7 meses */
+.bloque-plan {
+  margin-top: 48px;
+  background: var(--color-blanco);
+  border-radius: var(--radio-md);
+  padding: 36px;
+  border: 1px solid var(--color-borde);
+  box-shadow: var(--sombra-suave);
+}
+
+.bloque-plan-encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.bloque-plan-encabezado h3 {
+  margin: 0;
+  color: var(--color-principal);
+  font-family: var(--fuente-titulos);
+  font-size: 1.45rem;
+}
+
+.pasos-formacion {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.paso-item {
+  background: var(--color-fondo);
+  padding: 20px;
+  border-radius: var(--radio-sm);
+  border-left: 4px solid var(--color-turquesa);
+}
+
+.paso-numero {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-morado);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.paso-item h4 {
+  margin: 0 0 8px;
+  color: var(--color-principal);
+  font-size: 1.05rem;
+}
+
+.paso-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-texto-secundario);
+}
+
+/* ==========================================================================
+   7. CERTIFICACIÓN SEP-CONOCER EC1417
+   ========================================================================== */
+.certificacion-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.ficha-estandar {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(214, 174, 97, 0.45);
+  border-radius: var(--radio-md);
+  padding: 32px;
+}
+
+.ficha-estandar .codigo-ec {
+  display: inline-block;
+  background: var(--color-dorado);
+  color: var(--color-principal-oscuro);
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: var(--radio-sm);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.ficha-estandar h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  margin: 0 0 14px;
+  color: var(--color-blanco);
+}
+
+.etapas-certificacion {
+  display: grid;
+  gap: 16px;
+}
+
+.etapa-card {
+  background: var(--color-blanco);
+  color: var(--color-texto);
+  padding: 20px 24px;
+  border-radius: var(--radio-sm);
+  border-left: 5px solid var(--color-dorado);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.etapa-num {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-principal);
+  color: var(--color-dorado);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.etapa-card h4 {
+  margin: 0 0 4px;
+  color: var(--color-principal);
+  font-size: 1.05rem;
+}
+
+.etapa-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-texto-secundario);
+}
+
+.nota-transparencia {
+  margin-top: 20px;
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.8);
+  border-left: 3px solid var(--color-turquesa);
+  padding-left: 12px;
+}
+
+/* ==========================================================================
+   8. CATÁLOGO COMERCIAL E-COMMERCE (INSTRUMENTAL, KITS Y MÓDULOS DIGITALES)
+   ========================================================================== */
+.filtros-catalogo {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.btn-filtro {
+  background: var(--color-blanco);
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.94rem;
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+.btn-filtro:hover {
+  border-color: var(--color-turquesa);
+  color: var(--color-principal);
+}
+
+.btn-filtro.activo {
+  background: var(--color-principal);
+  color: var(--color-blanco);
+  border-color: var(--color-principal);
+}
+
+.grid-catalogo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.tarjeta-producto {
+  background: var(--color-blanco);
+  border-radius: var(--radio-md);
+  border: 1px solid var(--color-borde);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--sombra-suave);
+  transition: var(--transicion);
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-media);
+}
+
+.tarjeta-producto[ hidden ] {
+  display: none !important;
+}
+
+.producto-cabecera {
+  background: linear-gradient(135deg, var(--color-fondo-alt) 0%, #E2ECF5 100%);
+  padding: 24px;
+  border-bottom: 1px solid var(--color-borde);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.producto-icono {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radio-sm);
+  background: var(--color-principal);
+  color: var(--color-dorado);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.producto-categoria-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--color-blanco);
+  color: var(--color-morado);
+  border: 1px solid rgba(87, 54, 140, 0.2);
+}
+
+.producto-cuerpo {
+  padding: 24px;
+  flex: 1;
+}
+
+.producto-cuerpo h3 {
+  margin: 0 0 10px;
+  color: var(--color-principal);
+  font-size: 1.2rem;
+}
+
+.producto-cuerpo p {
+  margin: 0 0 16px;
+  color: var(--color-texto-secundario);
+  font-size: 0.93rem;
+}
+
+.producto-detalles {
+  font-size: 0.86rem;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+  padding: 12px;
+  border-radius: var(--radio-sm);
+  margin-bottom: 8px;
+}
+
+.producto-pie {
+  padding: 0 24px 24px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.producto-pie .btn {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+}
+
+/* Barra resumen de solicitud de cotización */
+.barra-cotizacion {
+  margin-top: 40px;
+  background: var(--color-blanco);
+  border: 2px solid var(--color-turquesa);
+  border-radius: var(--radio-md);
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-shadow: var(--sombra-suave);
+}
+
+.cotizacion-info h4 {
+  margin: 0 0 6px;
+  color: var(--color-principal);
+  font-size: 1.15rem;
+}
+
+.cotizacion-info p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-texto-secundario);
+}
+
+.lista-chips-cotizacion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.chip-item {
+  background: var(--color-turquesa-claro);
+  color: var(--color-principal);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chip-item button {
+  background: none;
+  border: none;
+  color: var(--color-morado);
+  font-weight: 800;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+/* ==========================================================================
+   9. DIFERENCIADORES INSTITUCIONALES
+   ========================================================================== */
+.grid-diferenciadores {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.card-diferenciador {
+  background: var(--color-blanco);
+  padding: 28px 24px;
+  border-radius: var(--radio-md);
+  border: 1px solid var(--color-borde);
+  border-bottom: 4px solid var(--color-morado);
+  box-shadow: var(--sombra-suave);
+}
+
+.card-diferenciador-icono {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--color-morado-claro);
+  color: var(--color-morado);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.card-diferenciador h3 {
+  margin: 0 0 10px;
+  font-size: 1.12rem;
+  color: var(--color-principal);
+}
+
+.card-diferenciador p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-texto-secundario);
+}
+
+/* ==========================================================================
+   10. SEDES CDMX Y QUERÉTARO
+   ========================================================================== */
+.grid-sedes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.tarjeta-sede {
+  background: var(--color-blanco);
+  border-radius: var(--radio-md);
+  padding: 36px;
+  border: 1px solid var(--color-borde);
+  border-top: 5px solid var(--color-morado);
+  box-shadow: var(--sombra-suave);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sede-etiqueta {
+  display: inline-block;
+  background: var(--color-morado-claro);
+  color: var(--color-morado);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.tarjeta-sede h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  color: var(--color-principal);
+  margin: 0 0 12px;
+}
+
+.tarjeta-sede p {
+  color: var(--color-texto-secundario);
+  margin: 0 0 20px;
+}
+
+/* ==========================================================================
+   11. PREGUNTAS FRECUENTES (ACORDEÓN)
+   ========================================================================== */
+.contenedor-faq {
+  max-width: 840px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--color-blanco);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  overflow: hidden;
+  transition: var(--transicion);
+}
+
+.faq-item.abierto {
+  border-color: var(--color-turquesa);
+  box-shadow: var(--sombra-suave);
+}
+
+.faq-pregunta {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-principal);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: inherit;
+}
+
+.faq-pregunta:hover {
+  color: var(--color-turquesa);
+}
+
+.faq-icono {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-fondo-alt);
+  color: var(--color-principal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  transition: var(--transicion);
+  flex-shrink: 0;
+}
+
+.faq-item.abierto .faq-icono {
+  background: var(--color-turquesa);
+  color: var(--color-blanco);
+  transform: rotate(45deg);
+}
+
+.faq-respuesta {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-respuesta-contenido {
+  padding: 0 24px 20px;
+  color: var(--color-texto-secundario);
+  font-size: 0.96rem;
+  border-top: 1px solid var(--color-fondo-alt);
+  padding-top: 14px;
+}
+
+/* ==========================================================================
+   12. CONTACTO Y FORMULARIO CONECTADO A WHATSAPP
+   ========================================================================== */
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 44px;
+  align-items: start;
+}
+
+.contacto-tarjetas {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tarjeta-dato-contacto {
+  background: var(--color-blanco);
+  padding: 24px;
+  border-radius: var(--radio-sm);
+  border: 1px solid var(--color-borde);
+  border-left: 4px solid var(--color-turquesa);
+}
+
+.tarjeta-dato-contacto h3 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: var(--color-principal);
+}
+
+.tarjeta-dato-contacto p {
+  margin: 0;
+  color: var(--color-texto-secundario);
+  font-size: 0.95rem;
+}
+
+.formulario-prospecto {
+  background: var(--color-blanco);
+  padding: 36px;
+  border-radius: var(--radio-md);
+  border: 1px solid var(--color-borde);
+  border-top: 5px solid var(--color-dorado);
+  box-shadow: var(--sombra-media);
+}
+
+.formulario-prospecto h3 {
+  margin: 0 0 8px;
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  color: var(--color-principal);
+}
+
+.formulario-prospecto > p {
+  margin: 0 0 24px;
+  color: var(--color-texto-secundario);
+  font-size: 0.94rem;
+}
+
+.campo-grupo {
+  margin-bottom: 18px;
+}
+
+.campo-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.campo-grupo label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-principal);
+  margin-bottom: 6px;
+}
+
+.campo-control {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  transition: var(--transicion);
+}
+
+.campo-control:focus {
+  outline: none;
+  border-color: var(--color-turquesa);
+  background-color: var(--color-blanco);
+  box-shadow: 0 0 0 3px rgba(0, 166, 178, 0.15);
+}
+
+/* ==========================================================================
+   13. PIE DE PÁGINA (FOOTER) Y BOTÓN FLOTANTE DE WHATSAPP
+   ========================================================================== */
+.pie-pagina {
+  background-color: var(--color-principal-oscuro);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 64px 0 28px;
+  border-top: 4px solid var(--color-dorado);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 36px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-marca strong {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: var(--color-blanco);
+  border-bottom: 3px solid var(--color-turquesa);
+  padding-bottom: 3px;
+  margin-bottom: 12px;
+}
+
+.footer-columna h4 {
+  color: var(--color-dorado);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 16px;
+}
+
+.footer-enlaces {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.92rem;
+}
+
+.footer-enlaces a:hover {
+  color: var(--color-turquesa);
+}
+
+.footer-inferior {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+/* Botón Flotante de WhatsApp */
+.whatsapp-flotante {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 990;
+  background-color: var(--color-whatsapp);
+  color: var(--color-blanco);
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.94rem;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.whatsapp-flotante:hover {
+  transform: translateY(-3px) scale(1.02);
+  background-color: #1ebe5b;
+}
+
+/* ==========================================================================
+   14. DISEÑO RESPONSIVO (BREAKPOINTS TABLET Y CELULAR)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid,
+  .certificacion-grid,
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-programas,
+  .grid-catalogo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pasos-formacion,
+  .grid-diferenciadores {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .seccion {
+    padding: 60px 0;
+  }
+
+  .barra-superior-contenido {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .boton-menu-movil {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-principal {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-blanco);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px 24px;
+    box-shadow: 0 12px 24px rgba(20, 45, 82, 0.12);
+    border-top: 1px solid var(--color-borde);
+    display: none;
+  }
+
+  .nav-principal.abierto {
+    display: flex;
+  }
+
+  .nav-lista {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .acciones-cabecera {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .acciones-cabecera .btn,
+  .acciones-cabecera .btn-cotizador-nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero {
+    padding: 56px 0 64px;
+  }
+
+  .hero-pilares,
+  .grid-programas,
+  .grid-catalogo,
+  .pasos-formacion,
+  .grid-diferenciadores,
+  .grid-sedes,
+  .campo-fila,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .whatsapp-flotante span {
+    display: none;
+  }
+  .whatsapp-flotante {
+    padding: 14px;
+    border-radius: 50%;
+  }
+}
