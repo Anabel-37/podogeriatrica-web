@@ -25,7 +25,9 @@
   --color-texto: #1B2941;           /* Texto principal de alto contraste */
   --color-texto-secundario: #4A5B75;/* Texto descriptivo y subtítulos */
   --color-borde: #DCE4EE;           /* Bordes sutiles para tarjetas y divisores */
-  --color-whatsapp: #25D366;        /* Verde oficial para acciones de WhatsApp */
+  --color-whatsapp: #25D366;        /* Verde oficial de WhatsApp */
+  --color-whatsapp-hover: #1EBE5B;  /* Tono hover para botones de WhatsApp */
+  --color-whatsapp-texto: #111B21;  /* Texto oscuro oficial de alto contraste sobre verde WhatsApp */
 
   /* Dimensiones y Espaciado */
   --ancho-maximo: 1200px;
@@ -240,6 +242,66 @@ ul {
   background-color: var(--color-principal);
   color: var(--color-blanco);
 }
+.btn-contorno:hover .icono-whatsapp-verde {
+  color: var(--color-blanco);
+}
+
+/* Botón y logotipo oficial de WhatsApp (sin efectos ni deformaciones) */
+.svg-sprite-oculto {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.icono-whatsapp {
+  width: 20px;
+  height: 20px;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  display: inline-block;
+  fill: currentColor;
+  filter: none;
+  transform: none;
+}
+
+.icono-whatsapp-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.icono-whatsapp-verde {
+  color: var(--color-whatsapp);
+}
+
+.icono-whatsapp-oscuro {
+  color: var(--color-whatsapp-texto);
+}
+
+.btn-whatsapp {
+  background-color: var(--color-whatsapp);
+  color: var(--color-whatsapp-texto);
+  border-color: var(--color-whatsapp);
+}
+.btn-whatsapp:hover {
+  background-color: var(--color-whatsapp-hover);
+  border-color: var(--color-whatsapp-hover);
+}
+.btn-whatsapp:disabled {
+  cursor: not-allowed;
+}
+.btn-whatsapp:disabled:hover {
+  background-color: var(--color-whatsapp);
+  border-color: var(--color-whatsapp);
+}
+
+.enlace-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  vertical-align: middle;
+}
 
 /* ==========================================================================
    4. BARRA SUPERIOR Y CABECERA (HEADER & NAV)
@@ -303,18 +365,19 @@ ul {
   justify-content: space-between;
   align-items: center;
   min-height: 76px;
-  gap: 16px;
+  gap: 12px;
 }
 
 .marca {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
 .marca-titulo {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--color-principal);
   border-bottom: 3px solid var(--color-turquesa);
   padding-bottom: 2px;
@@ -322,32 +385,34 @@ ul {
 }
 
 .marca-subtitulo {
-  font-size: 0.72rem;
+  font-size: 0.62rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   color: var(--color-morado);
   font-weight: 700;
   margin-top: 3px;
+  white-space: nowrap;
 }
 
 .nav-principal {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 12px;
 }
 
 .nav-lista {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 11px;
 }
 
 .nav-enlace {
-  font-size: 0.94rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--color-texto);
   padding: 6px 2px;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-enlace::after {
@@ -374,7 +439,20 @@ ul {
 .acciones-cabecera {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.acciones-cabecera .btn-whatsapp {
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.acciones-cabecera .btn-whatsapp .icono-whatsapp {
+  width: 17px;
+  height: 17px;
 }
 
 .btn-cotizador-nav {
@@ -382,14 +460,15 @@ ul {
   background: var(--color-fondo-alt);
   color: var(--color-principal);
   border: 1px solid var(--color-borde);
-  padding: 10px 14px;
+  padding: 8px 9px;
   border-radius: var(--radio-sm);
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .btn-cotizador-nav:hover {
@@ -1298,61 +1377,39 @@ ul {
 /* Botón Flotante de WhatsApp */
 .whatsapp-flotante {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  right: 20px;
+  bottom: 20px;
   z-index: 990;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
   background-color: var(--color-whatsapp);
-  color: var(--color-blanco);
-  padding: 14px 20px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.94rem;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  color: var(--color-whatsapp-texto);
+  box-shadow: 0 4px 14px rgba(12, 29, 54, 0.18);
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
 }
 
 .whatsapp-flotante:hover {
-  transform: translateY(-3px) scale(1.02);
-  background-color: #1ebe5b;
+  background-color: var(--color-whatsapp-hover);
+}
+
+.whatsapp-flotante:focus-visible {
+  outline: 3px solid var(--color-principal);
+  outline-offset: 3px;
+}
+
+.icono-whatsapp-flotante {
+  width: 28px;
+  height: 28px;
 }
 
 /* ==========================================================================
    14. DISEÑO RESPONSIVO (BREAKPOINTS TABLET Y CELULAR)
    ========================================================================== */
-@media (max-width: 1024px) {
-  .hero-grid,
-  .certificacion-grid,
-  .contacto-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .grid-programas,
-  .grid-catalogo {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .pasos-formacion,
-  .grid-diferenciadores {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .seccion {
-    padding: 60px 0;
-  }
-
-  .barra-superior-contenido {
-    justify-content: center;
-    text-align: center;
-  }
-
+@media (max-width: 1160px) {
   .boton-menu-movil {
     display: inline-flex;
     align-items: center;
@@ -1393,6 +1450,39 @@ ul {
     width: 100%;
     justify-content: center;
   }
+}
+
+@media (max-width: 1024px) {
+  .hero-grid,
+  .certificacion-grid,
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-programas,
+  .grid-catalogo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pasos-formacion,
+  .grid-diferenciadores {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .seccion {
+    padding: 60px 0;
+  }
+
+  .barra-superior-contenido {
+    justify-content: center;
+    text-align: center;
+  }
 
   .hero {
     padding: 56px 0 64px;
@@ -1409,11 +1499,18 @@ ul {
     grid-template-columns: 1fr;
   }
 
-  .whatsapp-flotante span {
-    display: none;
+  .pie-pagina {
+    padding-bottom: 84px;
   }
+
   .whatsapp-flotante {
-    padding: 14px;
-    border-radius: 50%;
+    right: 14px;
+    bottom: 14px;
+    width: 50px;
+    height: 50px;
+  }
+  .icono-whatsapp-flotante {
+    width: 25px;
+    height: 25px;
   }
 }
