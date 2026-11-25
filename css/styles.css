@@ -341,29 +341,17 @@ ul {
 }
 
 .marca {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  align-items: center;
   flex-shrink: 0;
+  padding: 2px 0;
 }
 
-.marca-titulo {
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: var(--color-principal);
-  border-bottom: 3px solid var(--color-turquesa);
-  padding-bottom: 2px;
-  line-height: 1.1;
-}
-
-.marca-subtitulo {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-morado);
-  font-weight: 700;
-  margin-top: 4px;
-  white-space: nowrap;
+.marca-logo {
+  height: 66px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .nav-principal {
@@ -1500,6 +1488,10 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .marca-logo {
+    height: 56px;
+  }
+
   .seccion,
   .seccion-incluye {
     padding: 56px 0;
