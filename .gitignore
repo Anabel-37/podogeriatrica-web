@@ -6,3 +6,8 @@
 respaldo/
 flyer/
 podogeriatrica-html.html
+
+# Archivos fuente originales que no deben subirse a GitHub
+logo podogeriatrica /
+logo podogeriatrica/
+*foto grupal*
