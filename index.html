@@ -51,31 +51,6 @@
   <!-- Enlace de accesibilidad -->
   <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
-  <!-- ===== BARRA SUPERIOR INSTITUCIONAL ===== -->
-  <div class="barra-superior" role="region" aria-label="Información institucional rápida">
-    <div class="contenedor barra-superior-contenido">
-      <div class="barra-superior-items">
-        <span><i class="punto-dorado" aria-hidden="true"></i> Formación presencial en <strong>CDMX y Querétaro</strong></span>
-        <span><i class="punto-dorado" aria-hidden="true"></i> Estándar de Competencia <strong>SEP-CONOCER EC1417</strong></span>
-      </div>
-      <div>
-        Atención directa WhatsApp:
-        <a
-          class="enlace-whatsapp"
-          href="https://wa.me/525523160570?text=Hola%20PODOGERI%C3%81TRICA%2C%20solicito%20informaci%C3%B3n%20sobre%20sus%20programas%20y%20productos."
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Escríbenos por WhatsApp al 55 2316 0570"
-        >
-          <svg class="icono-whatsapp icono-whatsapp-sm icono-whatsapp-verde" aria-hidden="true" focusable="false">
-            <use href="#icono-whatsapp-oficial"></use>
-          </svg>
-          <span>55 2316 0570</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- ===== CABECERA Y NAVEGACIÓN PRINCIPAL ===== -->
   <header class="cabecera">
     <div class="contenedor cabecera-contenedor">
@@ -92,35 +67,38 @@
         aria-controls="nav-principal"
         aria-label="Abrir o cerrar menú de navegación"
       >
-        ☰ Menú
+        <svg class="icono-menu-movil" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <span>Menú</span>
       </button>
 
       <nav id="nav-principal" class="nav-principal" aria-label="Navegación principal">
         <ul class="nav-lista">
-          <li><a class="nav-enlace" href="#programas">Formación</a></li>
-          <li><a class="nav-enlace" href="#certificacion">SEP-CONOCER EC1417</a></li>
-          <li><a class="nav-enlace" href="#catalogo">Instrumental y Módulos</a></li>
+          <li><a class="nav-enlace" href="#programas">Curso</a></li>
+          <li><a class="nav-enlace" href="#certificacion">Certificación</a></li>
           <li><a class="nav-enlace" href="#sedes">Sedes</a></li>
-          <li><a class="nav-enlace" href="#diferenciadores">Nosotros</a></li>
           <li><a class="nav-enlace" href="#preguntas-frecuentes">Preguntas</a></li>
           <li><a class="nav-enlace" href="#contacto">Contacto</a></li>
         </ul>
 
         <div class="acciones-cabecera">
-          <button type="button" id="btn-ir-cotizador" class="btn-cotizador-nav" title="Ver lista de artículos seleccionados">
-            Solicitud <span id="contador-seleccion" class="contador-seleccion">0</span>
-          </button>
+          <a class="btn btn-primario btn-header-cta" href="#contacto">
+            Solicitar informes
+          </a>
           <a
-            class="btn btn-whatsapp"
+            class="btn btn-whatsapp btn-header-cta"
             href="https://wa.me/525523160570?text=Hola%20PODOGERI%C3%81TRICA%2C%20me%20interesa%20inscribirme%20o%20recibir%20informes."
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Escríbenos por WhatsApp"
           >
-            <svg class="icono-whatsapp" aria-hidden="true" focusable="false">
+            <svg class="icono-whatsapp icono-whatsapp-header" aria-hidden="true" focusable="false">
               <use href="#icono-whatsapp-oficial"></use>
             </svg>
-            WhatsApp Directo
+            WhatsApp
           </a>
         </div>
       </nav>
@@ -133,90 +111,112 @@
     <!-- 1. SECCIÓN HERO (PORTADA) -->
     <section id="inicio" class="hero">
       <div class="contenedor hero-grid">
-        <div>
-          <span class="hero-insignia">Educación Podológica · CDMX y Querétaro</span>
-          <h1>Transforma tu futuro con <span>formación profesional en podología</span></h1>
+        <div class="hero-contenido">
+          <h1>Formación profesional en <span>podología presencial</span></h1>
           <p class="hero-descripcion">
-            Curso presencial de 7 meses con prácticas clínicas supervisadas, talleres especializados, orientación hacia la certificación <strong>SEP-CONOCER EC1417</strong> y equipamiento integral con instrumental, kits y módulos digitales.
+            Curso presencial de 7 meses con prácticas clínicas supervisadas y orientación hacia SEP-CONOCER EC1417.
           </p>
 
-          <div class="hero-botones">
-            <a
-              class="btn btn-primario"
-              href="https://wa.me/525523160570?text=Hola%20PODOGERI%C3%81TRICA%2C%20quiero%20solicitar%20informes%20sobre%20el%20curso%20presencial%20de%207%20meses."
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Solicitar informes de inscripción por WhatsApp"
-            >
-              <svg class="icono-whatsapp icono-whatsapp-oscuro" aria-hidden="true" focusable="false">
-                <use href="#icono-whatsapp-oficial"></use>
-              </svg>
-              Solicitar informes de inscripción
-            </a>
-            <a class="btn btn-secundario" href="#catalogo">
-              Explorar instrumental y módulos
-            </a>
-          </div>
+          <ul class="hero-datos" aria-label="Datos clave del programa">
+            <li><strong>7 meses</strong></li>
+            <li aria-hidden="true" class="hero-dato-sep">·</li>
+            <li><strong>Certificación SEP-CONOCER</strong></li>
+            <li aria-hidden="true" class="hero-dato-sep">·</li>
+            <li><strong>CDMX y Querétaro</strong></li>
+          </ul>
 
-          <div class="hero-pilares">
-            <div class="pilar-item">
-              <strong>7 Meses</strong>
-              <span>Formación presencial teórica y práctica progresiva</span>
-            </div>
-            <div class="pilar-item">
-              <strong>EC1417</strong>
-              <span>Orientación para evaluación SEP-CONOCER</span>
-            </div>
-            <div class="pilar-item">
-              <strong>2 Sedes</strong>
-              <span>Grupos presenciales en CDMX y Querétaro</span>
-            </div>
+          <div class="hero-botones">
+            <a class="btn btn-primario" href="#contacto">
+              Solicitar informes
+            </a>
+            <a class="btn btn-secundario" href="#que-incluye">
+              Qué incluye el curso
+            </a>
           </div>
         </div>
 
-        <!-- Ficha resumen lateral -->
-        <aside class="hero-tarjeta" aria-label="Resumen de oferta académica y comercial">
-          <div class="hero-tarjeta-encabezado">
-            <h2>Formación y Equipamiento Integral</h2>
-            <span class="badge-ec">EC1417</span>
-          </div>
-
-          <ul class="lista-check">
-            <li>
-              <span class="icono-check" aria-hidden="true">✓</span>
-              <span><strong>Curso presencial de 7 meses:</strong> bases anatómicas, bioseguridad y práctica supervisada con pacientes.</span>
-            </li>
-            <li>
-              <span class="icono-check" aria-hidden="true">✓</span>
-              <span><strong>Certificación SEP-CONOCER:</strong> acompañamiento metodológico en el estándar de competencia EC1417.</span>
-            </li>
-            <li>
-              <span class="icono-check" aria-hidden="true">✓</span>
-              <span><strong>Talleres de actualización:</strong> sesiones prácticas enfocadas en procedimientos y técnicas específicas.</span>
-            </li>
-            <li>
-              <span class="icono-check" aria-hidden="true">✓</span>
-              <span><strong>Instrumental, kits y módulos digitales:</strong> herramientas seleccionadas para estudiantes y profesionales en activo.</span>
-            </li>
-          </ul>
-
-          <div class="hero-tarjeta-pie">
-            <strong>Atención personalizada:</strong> consulta próximas aperturas de grupo, horarios y requisitos directamente con nuestro equipo académico.
-          </div>
-
-          <a
-            class="btn btn-institucional"
-            style="width: 100%;"
-            href="#contacto"
+        <figure class="hero-media">
+          <img
+            class="hero-imagen"
+            src="img/hero-podologia.jpg"
+            alt="Egresados de PODOGERIÁTRICA con su certificado"
+            width="1200"
+            height="900"
+            decoding="async"
+            fetchpriority="high"
           >
-            Agendar asesoría informativa
-          </a>
-        </aside>
+        </figure>
       </div>
     </section>
 
-    <!-- 2. SECCIÓN OFERTA EDUCATIVA (CURSO 7 MESES Y TALLERES) -->
-    <section id="programas" class="seccion">
+    <!-- 2. SECCIÓN ¿QUÉ INCLUYE EL CURSO? -->
+    <section id="que-incluye" class="seccion seccion-incluye">
+      <div class="contenedor">
+        <div class="incluye-encabezado">
+          <div>
+            <h2>¿Qué incluye el curso?</h2>
+            <p>
+              Formación presencial, acompañamiento metodológico y recursos seleccionados para respaldar tu práctica podológica.
+            </p>
+          </div>
+          <span class="badge-ec">Estándar EC1417</span>
+        </div>
+
+        <div class="grid-incluye">
+          <article class="incluye-item">
+            <div class="incluye-titulo-fila">
+              <svg class="incluye-icono" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <h3>Curso presencial de 7 meses</h3>
+            </div>
+            <p>Bases anatómicas, bioseguridad y práctica supervisada con pacientes.</p>
+          </article>
+
+          <article class="incluye-item">
+            <div class="incluye-titulo-fila">
+              <svg class="incluye-icono" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <h3>Certificación SEP-CONOCER</h3>
+            </div>
+            <p>Acompañamiento metodológico en el estándar de competencia EC1417.</p>
+          </article>
+
+          <article class="incluye-item">
+            <div class="incluye-titulo-fila">
+              <svg class="incluye-icono" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <h3>Talleres de actualización</h3>
+            </div>
+            <p>Sesiones prácticas enfocadas en procedimientos y técnicas específicas.</p>
+          </article>
+
+          <article class="incluye-item">
+            <div class="incluye-titulo-fila">
+              <svg class="incluye-icono" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <h3>Instrumental, kits y módulos digitales</h3>
+            </div>
+            <p>Herramientas seleccionadas para estudiantes y profesionales en activo.</p>
+          </article>
+        </div>
+
+        <div class="incluye-pie">
+          <p>
+            <strong>Atención personalizada:</strong> consulta próximas aperturas de grupo, horarios y requisitos directamente con nuestro equipo académico.
+          </p>
+          <a class="btn btn-institucional" href="#contacto">
+            Agendar asesoría informativa
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECCIÓN OFERTA EDUCATIVA (CURSO 7 MESES Y TALLERES) -->
+    <section id="programas" class="seccion seccion-alt">
       <div class="contenedor">
         <div class="encabezado-seccion">
           <span class="etiqueta-seccion">Oferta Académica</span>

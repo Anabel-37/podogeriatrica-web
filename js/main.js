@@ -23,17 +23,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const enlacesNav = document.querySelectorAll('.nav-enlace');
 
   if (botonMenuMovil && navPrincipal) {
+    const cerrarMenuMovil = () => {
+      navPrincipal.classList.remove('abierto');
+      botonMenuMovil.setAttribute('aria-expanded', 'false');
+    };
+
     botonMenuMovil.addEventListener('click', () => {
       const estaAbierto = navPrincipal.classList.toggle('abierto');
       botonMenuMovil.setAttribute('aria-expanded', String(estaAbierto));
     });
 
-    // Cerrar el menú móvil al hacer clic en cualquier enlace de navegación
-    enlacesNav.forEach((enlace) => {
-      enlace.addEventListener('click', () => {
-        navPrincipal.classList.remove('abierto');
-        botonMenuMovil.setAttribute('aria-expanded', 'false');
-      });
+    // Cerrar el menú móvil al hacer clic en cualquier enlace o botón del menú
+    navPrincipal.querySelectorAll('a').forEach((enlace) => {
+      enlace.addEventListener('click', cerrarMenuMovil);
+    });
+
+    // Cerrar el menú móvil con la tecla Escape
+    document.addEventListener('keydown', (evento) => {
+      if (evento.key === 'Escape' && navPrincipal.classList.contains('abierto')) {
+        cerrarMenuMovil();
+        botonMenuMovil.focus();
+      }
     });
   }
 
@@ -101,16 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const botonesAgregarCotizacion = document.querySelectorAll('.btn-agregar-cotizacion');
   const contenedorChips = document.getElementById('lista-chips-cotizacion');
   const textoEstadoCotizacion = document.getElementById('texto-estado-cotizacion');
-  const contadorCabecera = document.getElementById('contador-seleccion');
   const btnEnviarCotizacion = document.getElementById('btn-enviar-cotizacion');
-  const btnIrCotizadorNav = document.getElementById('btn-ir-cotizador');
 
   function actualizarVistaCotizacion() {
     const lista = Array.from(productosSeleccionados);
-
-    if (contadorCabecera) {
-      contadorCabecera.textContent = String(lista.length);
-    }
 
     if (!contenedorChips || !textoEstadoCotizacion || !btnEnviarCotizacion) {
       return;
@@ -194,15 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const url = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(mensaje)}`;
       window.open(url, '_blank', 'noopener,noreferrer');
-    });
-  }
-
-  if (btnIrCotizadorNav) {
-    btnIrCotizadorNav.addEventListener('click', () => {
-      const seccionCatalogo = document.getElementById('barra-cotizacion');
-      if (seccionCatalogo) {
-        seccionCatalogo.scrollIntoView({ behavior: 'smooth' });
-      }
     });
   }
 
